@@ -1,0 +1,145 @@
+{
+  "name": "inearum",
+  "version": "1.0.0",
+  "description": "sinon library extension to stub whole object and interfaces",
+  "author": "MajorMcLaughlin",
+  "license": "Apache-2.0 OR MIT",
+  "homepage": "https://github.com/ValentinJacobs/inearum.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ValentinJacobs/inearum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ValentinJacobs/inearum.git/issues"
+  },
+  "keywords": [
+    "quis",
+    "interface stub",
+    "node",
+    "sinon",
+    "placeat",
+    "ts-sinon",
+    "est",
+    "typescript sinon",
+    "typescript stub"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "type": "module",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "src",
+    "dist/src",
+    "!dist/test",
+    "!**/*.tsbuildinfo"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "breaking": true,
+              "release": "major"
+            },
+            {
+              "revert": true,
+              "release": "patch"
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            },
+            {
+              "type": "deps",
+              "release": "patch"
+            },
+            {
+              "scope": "no-release",
+              "release": false
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "chore",
+                "section": "Trivial Changes"
+              },
+              {
+                "type": "docs",
+                "section": "Documentation"
+              },
+              {
+                "type": "deps",
+                "section": "Dependencies"
+              },
+              {
+                "type": "test",
+                "section": "Tests"
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  },
+  "devDependencies": {
+    "@types/sinon": "^10.0.13",
+    "@types/sinon-chai": "^3.2.8",
+    "aegir": "^37.5.6",
+    "sinon": "^14.0.1",
+    "sinon-chai": "^3.7.0"
+  },
+  "peerDependencies": {
+    "sinon": "*"
+  }
+}
